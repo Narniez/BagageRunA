@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
@@ -55,13 +56,15 @@ public class PlayerController : MonoBehaviour
         float horizontalMovemet = horizontalInput * playerSpeed * Time.deltaTime;
 
 
+        if (horizontalInput > 0)
+        {
+        }
 
         playerRb.linearVelocity = new Vector2(horizontalMovemet, playerRb.linearVelocity.y);
-
         if (Mathf.Abs(playerRb.linearVelocity.x) > 0 && playerRb.linearVelocity.y == 0)
         {
             audioSource.clip = walkingSound;
-            Debug.Log("Player is moving");
+            //Debug.Log("Player is moving");
             if (audioSource.clip == walkingSound && !audioSource.isPlaying)
             {
                 audioSource.Play();
@@ -129,6 +132,22 @@ public class PlayerController : MonoBehaviour
 
     public void EnableMovement()
     {
+        canMove = true;
+    }
+
+    public void StopMovementForOneSecond()
+    {
+        if (canMove) // Only stop if currently able to move
+        {
+            canMove = false;
+            playerRb.linearVelocity = Vector2.zero; // Stop all movement
+            StartCoroutine(ResumeMovementAfterDelay());
+        }
+    }
+
+    private IEnumerator ResumeMovementAfterDelay()
+    {
+        yield return new WaitForSeconds(1f);
         canMove = true;
     }
 
