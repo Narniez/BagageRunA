@@ -43,15 +43,16 @@ public class LosePackageInteractable : Interactable
         if (interactionUI != null && !hasInteracted)
         {
             interactionUI.SetActive(false);
+            packageHandler.PopLastPackage();
+            playerController.StopMovementForOneSecond();
         }
-        packageHandler.PopLastPackage();
-        playerController.StopMovementForOneSecond();
+        hasInteracted = true;
 
         if (shouldChangeSprite)
         {
             ChangeSprite();
         }
-        hasInteracted = true;
+
     }
 
 

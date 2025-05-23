@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 2118103697276028899}
   - component: {fileID: 3127102816481548604}
   - component: {fileID: -1268653231904935886}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Bag_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -123,17 +123,17 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: -0.0037736893, y: 0.03020978}
+  m_Offset: {x: 0.011474609, y: 0.018350124}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.5071429, y: 1.35}
+    oldSize: {x: 1.055, y: 0.945}
     newSize: {x: 4.22, y: 3.78}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 1.1357212, y: 0.6664882}
+  m_Size: {x: 0.9374962, y: 0.59871864}
   m_EdgeRadius: 0
 --- !u!50 &-1268653231904935886
 Rigidbody2D:
