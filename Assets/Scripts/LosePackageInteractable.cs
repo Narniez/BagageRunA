@@ -1,12 +1,14 @@
 using System.Collections;
 using UnityEngine;
 
-public class GetPackageInteractable : Interactable
+public class LosePackageInteractable : Interactable
 {
     [SerializeField] PackageHandler packageHandler;
     [SerializeField] PlayerController playerController;
 
     public GameObject interactionUI;
+
+    public Sprite newSprite;
 
     public Transform UIPosition;
     private Vector3 initialUIPosition;
@@ -14,16 +16,7 @@ public class GetPackageInteractable : Interactable
 
     private bool hasInteracted = false;
 
-
-    private void Start()
-    {
-        if (interactionUI != null)
-        {
-
-            interactionUI.transform.position = UIPosition.position;
-        }
-    }
-
+    public bool shouldChangeSprite = false;
     public override void OnFocus()
     {
 
@@ -51,9 +44,14 @@ public class GetPackageInteractable : Interactable
         {
             interactionUI.SetActive(false);
         }
-        hasInteracted = true;
-        packageHandler.SpawnPackage();
+        packageHandler.PopLastPackage();
         playerController.StopMovementForOneSecond();
+
+        if (shouldChangeSprite)
+        {
+            ChangeSprite();
+        }
+        hasInteracted = true;
     }
 
 
@@ -61,17 +59,20 @@ public class GetPackageInteractable : Interactable
     {
         isHovering = true;
         float hoverSpeed = 1f;
-        float hoverHeight = 0.1f;
+        // float hoverHeight = 0.1f;
 
         while (isHovering)
         {
 
-            float newY = initialUIPosition.y + Mathf.Sin(Time.time * hoverSpeed) * hoverHeight;
+            float newY = initialUIPosition.y + Mathf.Sin(Time.time * hoverSpeed);
             interactionUI.transform.position = new Vector3(initialUIPosition.x, newY, initialUIPosition.z);
 
             yield return null;
         }
     }
 
-
+    private void ChangeSprite()
+    {
+        GetComponent<SpriteRenderer>().sprite = newSprite;
+    }
 }

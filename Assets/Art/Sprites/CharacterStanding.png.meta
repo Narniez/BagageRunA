@@ -1,64 +1,16 @@
 fileFormatVersion: 2
-guid: 4c85e3a72cccf3a46a74f4537259ec2c
+guid: 1fc960d820f094e46b681eb1767404dd
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 2861772614800424396
-    second: IMG_0669_0
+      213: 2686952453700206474
+    second: CharacterStanding_0
   - first:
-      213: 2840385704191782840
-    second: IMG_0669_1
+      213: -62544791112930577
+    second: CharacterStanding_1
   - first:
-      213: -1846105195752874690
-    second: IMG_0669_2
-  - first:
-      213: 8215836772740909363
-    second: IMG_0669_3
-  - first:
-      213: 5020516795334163098
-    second: IMG_0669_4
-  - first:
-      213: -6235651445728438837
-    second: IMG_0669_5
-  - first:
-      213: 304487413019312483
-    second: IMG_0669_6
-  - first:
-      213: 6988437319759135031
-    second: IMG_0669_7
-  - first:
-      213: 2430969989224418911
-    second: IMG_0669_8
-  - first:
-      213: -1533805116467960892
-    second: IMG_0669_9
-  - first:
-      213: -5663982774263863906
-    second: IMG_0669_10
-  - first:
-      213: 8725879715206307831
-    second: IMG_0669_11
-  - first:
-      213: -333118871826742126
-    second: IMG_0669_12
-  - first:
-      213: 1148061531263809653
-    second: IMG_0669_13
-  - first:
-      213: 2962000506374110526
-    second: IMG_0669_14
-  - first:
-      213: -4430841996372120753
-    second: IMG_0669_15
-  - first:
-      213: 2543863850099992118
-    second: IMG_0669_16
-  - first:
-      213: 7944328663799332009
-    second: IMG_0669_17
-  - first:
-      213: -976233848240983483
-    second: IMG_0669_18
+      213: 5664873785519123888
+    second: CharacterStanding_2
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -105,7 +57,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 280
+  spritePixelsToUnits: 200
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -180,133 +132,67 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: IMG_0669_3
+      name: CharacterStanding_0
       rect:
         serializedVersion: 2
-        x: 79
-        y: 695
-        width: 124
-        height: 305
+        x: 240
+        y: 402
+        width: 12
+        height: 21
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 33940d3f304840270800000000000000
-      internalID: 8215836772740909363
+      spriteID: a8f3a234509f94520800000000000000
+      internalID: 2686952453700206474
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: IMG_0669_4
+      name: CharacterStanding_1
       rect:
         serializedVersion: 2
-        x: 421
-        y: 649
-        width: 422
-        height: 378
+        x: 248
+        y: 136
+        width: 919
+        height: 605
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: a9a76ceec657ca540800000000000000
-      internalID: 5020516795334163098
+      spriteID: feaa92708dbc12ff0800000000000000
+      internalID: -62544791112930577
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: IMG_0669_5
+      name: CharacterStanding_2
       rect:
         serializedVersion: 2
-        x: 1093
-        y: 782
-        width: 505
-        height: 226
+        x: 1758
+        y: 412
+        width: 7
+        height: 7
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: bc5943a4c048679a0800000000000000
-      internalID: -6235651445728438837
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: IMG_0669_11
-      rect:
-        serializedVersion: 2
-        x: 1160
-        y: 181
-        width: 400
-        height: 393
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 7ff98a98e5d881970800000000000000
-      internalID: 8725879715206307831
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: IMG_0669_12
-      rect:
-        serializedVersion: 2
-        x: 74
-        y: 177
-        width: 259
-        height: 360
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 294c9c8a626806bf0800000000000000
-      internalID: -333118871826742126
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: IMG_0669_13
-      rect:
-        serializedVersion: 2
-        x: 614
-        y: 182
-        width: 290
-        height: 297
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 578354741ebbeef00800000000000000
-      internalID: 1148061531263809653
+      spriteID: 0bd2a43b1bcad9e40800000000000000
+      internalID: 5664873785519123888
       vertices: []
       indices: 
       edges: []
@@ -315,7 +201,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: baafaac3742882942a3924ca174e54c3
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
@@ -325,7 +211,9 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      IMG_0669_10: 1909752619
+      CharacterStanding_0: 2686952453700206474
+      CharacterStanding_1: -62544791112930577
+      CharacterStanding_2: 5664873785519123888
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

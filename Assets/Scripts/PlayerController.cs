@@ -2,7 +2,7 @@ using System.Collections;
 using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
-    [SerializeField] private float playerSpeed = 30f;
+    [SerializeField] public float playerSpeed = 30f;
     [SerializeField] private float jumpForce = 5f;
     //[SerializeField] private float dashForce = 3f;
 
@@ -20,7 +20,7 @@ public class PlayerController : MonoBehaviour
 
     private bool isGrounded;
     private bool isFacingRight = true;
-    private bool canMove = true;
+    public bool canMove = true;
 
     // private PlayerMeleeAttack meleeAttack;
     private Vector2 movement;
@@ -30,10 +30,14 @@ public class PlayerController : MonoBehaviour
     [SerializeField] AudioSource audioSource;
     [SerializeField] AudioSource helperSource;
 
+
+    private Animator animator;
     // Start is called before the first frame update
     void Start()
     {
         playerRb = GetComponent<Rigidbody2D>();
+        animator = GetComponent<Animator>();
+        canMove = false;
         //meleeAttack = GetComponent<PlayerMeleeAttack>();
 
     }
@@ -58,6 +62,11 @@ public class PlayerController : MonoBehaviour
 
         if (horizontalInput > 0)
         {
+            animator.SetBool("isWalking", true);
+        }
+        else
+        {
+            animator.SetBool("isWalking", false);
         }
 
         playerRb.linearVelocity = new Vector2(horizontalMovemet, playerRb.linearVelocity.y);
@@ -78,7 +87,11 @@ public class PlayerController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (!canMove) return;
+        if (!canMove)
+        {
+            animator.SetBool("isWalking", false);
+            return;
+        }
         Movement();
 
     }
@@ -154,4 +167,6 @@ public class PlayerController : MonoBehaviour
     public bool CanMove() => canMove;
     public bool IsPlayerJumping() => !isGrounded;
     public bool IsFacingRight() => isFacingRight;
+
+
 }

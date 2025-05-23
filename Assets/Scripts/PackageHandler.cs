@@ -9,7 +9,7 @@ public class PackageHandler : MonoBehaviour
 
 
     [SerializeField] private GameObject[] packagePrefabs;
-    [SerializeField] private float spawnInterval = 2f;
+    [SerializeField] private int packageAmount = 7;
     [SerializeField] private Transform backpackTransform;
     [SerializeField] private Transform spawnTransform;
 
@@ -22,11 +22,13 @@ public class PackageHandler : MonoBehaviour
     [SerializeField] private bool facingRight = true;
     [SerializeField] private float throwSpeed = 5f;
     [SerializeField] private float throwHeight = 3f;
-    [SerializeField] private float throwOffsetY = 1f;
+    [SerializeField] private float throwOffsetY = 2f;
+
+    [SerializeField] PlayerController playerController;
 
     private void Start()
     {
-        //InvokeRepeating(nameof(SpawnPackage), 0f, spawnInterval);
+        StartCoroutine(SpawnInitialPackages());
     }
 
     private void Update()
@@ -60,6 +62,7 @@ public class PackageHandler : MonoBehaviour
         {
             collisionHandler.SetPackageHandler(this, rb);
         }
+        playerController.playerSpeed -= 20;
     }
 
     public void OnPackageCollision(Rigidbody2D rb, Transform packageTransform)
@@ -79,18 +82,18 @@ public class PackageHandler : MonoBehaviour
         // Stop movement and set kinematic
         if (rb != null)
         {
-            rb.velocity = Vector2.zero; // Stop movement
-            rb.isKinematic = true; // Disable physics updates
-            packageTransform.SetParent(backpackTransform); // Parent to backpack
+            rb.velocity = Vector2.zero;
+            rb.isKinematic = true;
+            packageTransform.SetParent(backpackTransform);
         }
     }
 
-    private void PopLastPackage()
+    public void PopLastPackage()
     {
         if (spawnedPackages.Count == 0)
             return;
 
-        // Get the last package
+
         Rigidbody2D rb = spawnedPackages[spawnedPackages.Count - 1];
         if (rb == null)
         {
@@ -98,23 +101,43 @@ public class PackageHandler : MonoBehaviour
             return;
         }
 
-        // Unparent and re-enable physics
+
         Transform packageTransform = rb.transform;
         packageTransform.SetParent(null);
         rb.isKinematic = false;
 
-        // Position package above backpack
+
         Vector3 backpackPos = backpackTransform.position;
-        Vector2 throwStartPos = new Vector2(backpackPos.x, backpackPos.y + throwOffsetY);
+        Vector2 throwStartPos = new Vector2(packageTransform.position.x, packageTransform.position.y + throwOffsetY);
         packageTransform.position = throwStartPos;
 
-        // Calculate throw direction based on player facing
+
         float throwDirection = facingRight ? 1f : -1f;
         Vector2 throwVelocity = new Vector2(throwDirection * throwSpeed, throwHeight);
         rb.velocity = throwVelocity;
 
-        // Remove from tracking lists
         spawnedPackages.Remove(rb);
+
+        playerController.playerSpeed += 20;
+    }
+
+    private IEnumerator SpawnInitialPackages()
+    {
+        // Validate packageAmount
+        int spawnCount = Mathf.Max(0, packageAmount);
+        int count = packageAmount;
+        for (int i = 0; i < spawnCount; i++)
+        {
+            SpawnPackage();
+            yield return new WaitForSeconds(0.3f);
+            count--;
+        }
+
+        if (count <= 0)
+        {
+            playerController.canMove = true;
+        }
+
     }
 
 }
